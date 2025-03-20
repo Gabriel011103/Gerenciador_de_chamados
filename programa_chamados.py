@@ -33,7 +33,7 @@ def adicionarUsuario(usuarios):#FUNÇÃO QUE ADICIONA USUARIOS
     entradaEmail = input("DIGITE O SEU E-MAIL:  ").strip().lower() #VERIFICA SE O EMAIL TEM O SUFIXO QUE O SISTEMA ACEITA
     posicao = entradaEmail.find("@")#PROCURA A PARTE QUE IREI VALIDA
     servidor = entradaEmail[posicao+1:]#SEPARA A PARTE QUE IREI VALIDAR
-    if servidor == "gmail.com" or "hotmail.com" or "outlook.com" or "icloud.com": #FAZ A VALIDAÇÃO
+    if servidor in ["gmail.com", "hotmail.com", "outlook.com", "icloud.com"]: #FAZ A VALIDAÇÃO
         email = entradaEmail# SE PASSAR PELA VALIDAÇÃO A VARIAVEL EMAIL RECEBE O VALOR DE ENTRADA
     else:
         print("FORMATO INVALIDO, TENTE NOVAMENTE.")#INTERAÇÃO COM O USÁRIO, RETORNA AO INICIO DA FUNÇÃO
@@ -139,7 +139,7 @@ def menuUsuarioMaster(): #ESSE É O MENU DO USUÁRIO MASTER, TEM ALGUMAS FUNÇÕ
         else:
             print("OPÇÃO INVÁLIDA, TENTE NOVAMENTE!")
 
-def verificarUsuario(usuarios): #VERIFICA SE O USUÁRIO EXISTE E QUAL TIPO DELE, PRINTA INFORMANDO SE É UM USUÁRIO COMUM OU MASTER
+def verificarUsuario(usuarios, usuariosAdministradores): #VERIFICA SE O USUÁRIO EXISTE E QUAL TIPO DELE, PRINTA INFORMANDO SE É UM USUÁRIO COMUM OU MASTER
     if not usuarios:
         print("AINDA NÃO HÁ RESGISTROS POR AQUI") #RETORNA ESSA MENSAGEM SE A LISTA DE USUÁRIO ESTARÁ VAZIA
         time.sleep(2)
